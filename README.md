@@ -1,5 +1,5 @@
-# SQL for DataScience
+### SQL for DataScience
 
-# Hackerank
-# SQLZOO
-# SQL Fiddle
+### Hackerank
+### SQLZOO
+### SQL Fiddle
