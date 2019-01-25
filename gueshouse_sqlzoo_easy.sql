@@ -31,5 +31,13 @@ and b.room_no = 101
 and b.booking_date = '2016-12-03';
 
 
+# 5. How many bookings, how many nights? 
+# For guests 1185 and 1270 show the number of bookings made and the total number of nights. Your output should include the guest id and the total number of bookings and the total number of nights.
+select guest_id,
+          count( guest_id),
+          sum(nights)
+from booking
+where guest_id in (1185, 1270)
+group by 1;
 
 
