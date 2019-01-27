@@ -47,3 +47,24 @@ FROM benn.college_football_players
 GROUP BY state
 ORDER BY total_players DESC ;
 
+
+/*
+Write a query that shows the number of players at schools with names that start with A through M, 
+and the number at schools with names starting with N - Z.
+*/
+
+SELECT
+      COUNT(CASE WHEN school_name >= 'A%' AND school_name <= 'M%' THEN 'A-M' ELSE NULL END) am,
+      COUNT(CASE WHEN school_name >= 'N%' AND school_name <= 'Z%' THEN 'A-M' ELSE NULL END) n_z
+FROM benn.college_football_players ;
+
+
+
+
+
+
+
+
+
+
+
