@@ -28,3 +28,22 @@ SELECT CASE
 FROM benn.college_football_players
 WHERE state = 'CA'
 GROUP BY 1;
+
+
+
+/*
+Write a query that displays the number of players in each state, with FR, SO, JR, and SR players 
+in separate columns and another column for the total number of players.
+Order results such that states with the most players come first.
+*/
+
+SELECT  state,
+        COUNT(CASE WHEN year = 'FR' THEN 'FR' ELSE NULL END) as freshmen_count,
+        COUNT(CASE WHEN year = 'SO' THEN 'SO' ELSE NULL END) as sophomore_count,
+        COUNT(CASE WHEN year = 'JR' THEN 'JR' ELSE NULL END) as junior_count,
+        COUNT(CASE WHEN year = 'SR' THEN 'SR' ELSE NULL END) as senior_count,
+        COUNT(1) as total_players
+FROM benn.college_football_players
+GROUP BY state
+ORDER BY total_players DESC ;
+
