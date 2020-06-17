@@ -36,15 +36,12 @@ Business with id 1 has 7 'reviews' events (more than 5) and 11 'ads' events (mor
 
 
 
-
 select e.business_id
-from Events e
-join (
-  select event_type, avg(occurences) as avg_occurences
-  from Events
-  group by event_type ) t
-on e.event_type = t.event_type
-group by e.business_id
-having sum(
-            case when occurences > avg_occurences then 1 else 0 end
-  ) > 1
+from Events e join 
+(
+	select event_type, avg(occurences) as avg_occurences
+	from Events
+	group by event_type
+) t
+where e.event_type = t.event_type
+having sum(case when occurences > avg_occurences then 1 else 0 end) > 1
