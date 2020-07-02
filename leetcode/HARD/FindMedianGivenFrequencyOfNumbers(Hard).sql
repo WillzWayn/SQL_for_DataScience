@@ -17,3 +17,8 @@ In this table, the numbers are 0, 0, 0, 0, 0, 0, 0, 1, 2, 2, 2, 3, so the median
 | 0.0000 |
 +--------+
 Write a query to find the median of all numbers and name the result as median.
+
+
+select case when total % 2 = 0 then total/2 + total
+select sum(Frequency) as total
+from Numbers
